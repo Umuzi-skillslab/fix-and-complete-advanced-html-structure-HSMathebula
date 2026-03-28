@@ -1,0 +1,528 @@
+/* ============================================
+   COMPONENTS
+   Navigation, hero, cards, grids, forms, media
+   ============================================ */
+
+/* --- Navigation (Flexbox — required pattern) --- */
+/* Descendant selectors: nav ul, nav ul li */
+nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-sm);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+/* Attribute selector — links in navigation */
+nav ul li a[href] {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius);
+    transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Pseudo-classes: hover, nth-child on second item */
+nav ul li a[href]:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+nav ul li:nth-child(2) a[href] {
+    font-weight: 600;
+}
+
+/* Combination selector: active page link */
+a.active {
+    color: #ffffff;
+    background-color: var(--color-accent);
+    box-shadow: var(--shadow);
+}
+
+a.active:hover {
+    background-color: var(--color-accent-dark);
+}
+
+/* --- Hero --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjacent sibling: paragraph immediately after hero heading */
+section.hero h2 + p {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+}
+
+section.hero {
+    padding: var(--space-lg) var(--space-md);
+    /* Keep horizontal margin auto — margin shorthand with 0 was overriding .container */
+    margin: var(--space-lg) auto;
+    background: linear-gradient(135deg, #e8eef5 0%, #f4f4f4 100%);
+    color: var(--color-text);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 2s ease-in;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.35);
+}
+
+/* --- Service cards (Flexbox — required) --- */
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: var(--space-md);
+}
+
+/* Child combinator: direct card articles */
+.service-cards > .card {
+    flex: 1 1 280px;
+    max-width: 340px;
+    background: var(--color-surface);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* Last paragraph inside a card */
+.card p:last-child {
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+}
+
+.card figure {
+    margin: 0 0 var(--space-sm);
+}
+
+.card figcaption {
+    margin-top: var(--space-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Transform on images inside cards / feature */
+.card img:hover,
+.feature img:hover,
+.team figure img:hover,
+.grid-gallery figure img:hover,
+.testimonial-grid figure img:hover {
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
+.card img,
+.feature img,
+.team figure img,
+.grid-gallery figure img,
+.testimonial-grid figure img {
+    transition: transform 0.3s ease;
+}
+
+/* --- Portfolio grid (CSS Grid — auto-fit / minmax) --- */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Explicit row template + implicit rows for wrapping (rubric: columns, rows, gap) */
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    gap: var(--space-md);
+}
+
+.grid-gallery figure {
+    margin: 0;
+    background: var(--color-surface);
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.grid-gallery figure:hover {
+    transform: scale(1.02);
+}
+
+.grid-gallery figcaption {
+    margin-top: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* --- Testimonials grid (responsive Grid) --- */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    gap: var(--space-md);
+}
+
+.testimonial-grid figure {
+    margin: 0;
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.testimonial-grid figcaption {
+    margin-top: var(--space-sm);
+    font-style: italic;
+    color: var(--color-text-muted);
+}
+
+/* --- Team strip (Flexbox) --- */
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+.team figure {
+    flex: 1 1 200px;
+    max-width: 280px;
+    margin: 0;
+    text-align: center;
+}
+
+/* --- Video section (Flexbox) --- */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-lg);
+}
+
+.video-container figure {
+    flex: 1 1 300px;
+    max-width: 480px;
+    margin: 0;
+}
+
+/* --- Media: video & audio (required) --- */
+video,
+audio {
+    width: 100%;
+    margin-top: var(--space-md);
+    border-radius: var(--radius);
+}
+
+/* --- Location map (no inline styles — valid, maintainable) --- */
+.map-embed,
+.location iframe {
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--space-md);
+    border: 0;
+    border-radius: var(--radius);
+    min-height: 320px;
+    display: block;
+}
+
+/* Audio wrapped in <figure> for semantics + figcaption */
+.audio-figure {
+    margin: var(--space-md) 0 0;
+    max-width: 100%;
+}
+
+.audio-figure figcaption {
+    margin-top: var(--space-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* --- Forms (attribute selectors + pseudo-classes) --- */
+form {
+    max-width: 640px;
+    margin-top: var(--space-md);
+}
+
+/* Contact page: wider form so three columns fit comfortably */
+section.contact form {
+    max-width: var(--content-max-width);
+}
+
+/* Contact form — two columns: Personal | (Service above Message) */
+.contact-form-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: var(--space-md);
+    align-items: stretch;
+    margin-bottom: var(--space-md);
+}
+
+.contact-form-columns .contact-fieldset {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* Left column: spans both rows so it lines up with the stacked pair */
+.contact-fieldset--personal {
+    grid-column: 1;
+    grid-row: 1 / -1;
+}
+
+/* Right column, top: Service Required */
+.contact-fieldset--service {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* Right column, bottom: Your Message */
+.contact-fieldset--message {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* Message area grows within the bottom-right cell */
+.contact-fieldset--message textarea {
+    flex: 1;
+    min-height: 140px;
+    margin-bottom: 0;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+    background: var(--color-surface);
+}
+
+/* Child combinator */
+fieldset > legend {
+    font-weight: 700;
+    padding: 0 var(--space-sm);
+    color: var(--color-text);
+}
+
+form label {
+    display: block;
+    margin-top: var(--space-sm);
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Attribute selectors — different input types */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: var(--space-sm);
+    border: 2px solid #ccc;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+}
+
+/* Pseudo-class: not focused — subtle default state */
+input[type="text"]:not(:focus),
+input[type="email"]:not(:focus),
+textarea:not(:focus) {
+    border-color: #bdbdbd;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px;
+    width: auto;
+}
+
+fieldset label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+button[type="submit"] {
+    padding: 12px 32px;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--color-accent-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.35);
+}
+
+/* --- Feature / about spacing --- */
+section.services,
+section.about,
+section.portfolio,
+section.videos,
+section.audio,
+section.contact,
+section.testimonials,
+section.location {
+    margin-bottom: var(--space-lg);
+}
+
+section.feature figure {
+    margin: var(--space-md) 0 0;
+}
+
+section.feature figcaption {
+    margin-top: var(--space-sm);
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   UTILITIES — Responsive design
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* Stack title above nav on small screens */
+    header.container {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    header.container h1 {
+        flex: none;
+    }
+
+    header.container nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav ul li a[href] {
+        text-align: center;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-cards > .card {
+        max-width: 100%;
+    }
+
+    footer.container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    footer.container address {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .video-container {
+        flex-direction: column;
+    }
+
+    /* Contact form: single column — Personal, then Service, then Message */
+    .contact-form-columns {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .contact-fieldset--personal {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .contact-fieldset--service {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .contact-fieldset--message {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .contact-fieldset--message textarea {
+        min-height: 120px;
+    }
+}

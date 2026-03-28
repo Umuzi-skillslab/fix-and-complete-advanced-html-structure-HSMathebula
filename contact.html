@@ -1,40 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact our media production company for professional services.">
+
+    <title>Contact Us</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <div class="top">
-        <h1>Contact Us</h1>
-        <div class="nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="media.html">Media</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </div>
-    
-    <div>
-        <h2>Get In Touch</h2>
-        
-        <!-- Form with multiple errors -->
-        <form>
-            <input type="text" placeholder="Name">
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="Phone">
-            <textarea placeholder="Message"></textarea>
-            
-            <!-- Missing: labels, proper input types (email, tel), validation attributes -->
-            <!-- Missing: radio buttons, checkboxes, select/dropdown, date/number inputs -->
-            <!-- Missing: fieldset for grouping -->
-            
-            <button>Submit</button>
-        </form>
-    </div>
-    
-    <div class="bottom">
-        <p>Email: contact@mediaproduction.com</p>
-    </div>
+
+    <header class="container">
+        <h1>Media Production Company</h1>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <section class="contact container">
+            <h2>Get In Touch</h2>
+
+            <form action="#" method="post">
+
+                <!-- Personal left; Service + Message stacked on right (CSS Grid) -->
+                <div class="contact-form-columns">
+
+                    <!-- PERSONAL INFO -->
+                    <fieldset class="contact-fieldset contact-fieldset--personal">
+                        <legend>Personal Information</legend>
+
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required minlength="2">
+
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+                        <label for="date">Preferred Contact Date:</label>
+                        <input type="date" id="date" name="date" required>
+
+                        <label for="referral">How did you hear about us?</label>
+                        <select id="referral" name="referral" required>
+                            <option value="">Please select…</option>
+                            <option value="search">Search engine</option>
+                            <option value="social">Social media</option>
+                            <option value="referral">Friend or colleague</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <label>
+                            <input type="checkbox" id="updates" name="updates" value="yes">
+                            Email me occasional news and offers (optional)
+                        </label>
+                    </fieldset>
+
+                    <!-- SERVICE TYPE -->
+                    <fieldset class="contact-fieldset contact-fieldset--service">
+                        <legend>Service Required</legend>
+
+                        <label>
+                            <input type="radio" name="service" value="video" required>
+                            Video Production
+                        </label>
+
+                        <label>
+                            <input type="radio" name="service" value="audio">
+                            Audio Production
+                        </label>
+
+                        <label>
+                            <input type="radio" name="service" value="editing">
+                            Editing Services
+                        </label>
+                    </fieldset>
+
+                    <!-- MESSAGE -->
+                    <fieldset class="contact-fieldset contact-fieldset--message">
+                        <legend>Your Message</legend>
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required minlength="10" maxlength="2000" rows="6" placeholder="Describe your project (10–2000 characters)"></textarea>
+                    </fieldset>
+
+                </div>
+
+                <!-- SUBMIT -->
+                <button type="submit">Submit</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="container">
+        <address>
+            <p>Email: <a href="mailto:contact@mediaproduction.com">contact@mediaproduction.com</a></p>
+            <p>Phone: <a href="tel:+15550123">555-0123</a></p>
+        </address>
+    </footer>
+
 </body>
 </html>

@@ -1,0 +1,258 @@
+================================================================================
+ISSUES LOG — ORIGINAL STARTER VS FIXED PROJECT
+================================================================================
+
+This document records issues found in the original starter HTML and CSS you
+were given, and how the current site addresses them. Use it for assignment
+documentation (e.g. "25+ errors").
+
+--------------------------------------------------------------------------------
+A. ISSUES COMMON TO ALL ORIGINAL HTML PAGES
+--------------------------------------------------------------------------------
+
+A1.  Issue: <html> had no lang attribute
+     Fix:  lang="en" on every page
+
+A2.  Issue: No character encoding (<meta charset="UTF-8">)
+     Fix:  Added in <head> on all pages
+
+A3.  Issue: No viewport meta — mobile layout not defined
+     Fix:  width=device-width, initial-scale=1.0
+
+A4.  Issue: No meta description
+     Fix:  Unique description per page
+
+A5.  Issue: Header was <div class="top"> — not semantic
+     Fix:  <header class="container">
+
+A6.  Issue: Navigation was <div class="nav"> + loose links — not real nav
+     Fix:  <nav><ul><li><a>… with active state class
+
+A7.  Issue: No <main> landmark for primary content
+     Fix:  <main id="main"> wraps page content
+
+A8.  Issue: Footer was <div class="bottom"> — not semantic
+     Fix:  <footer class="container"> with <address> and mailto/tel
+
+A9.  Issue: Body content used anonymous <div> stacks instead of sections
+     Fix:  <section class="… container"> (and <article> where appropriate)
+
+A10. Issue: CSS class names .top, .bottom, .nav did not match a maintainable model
+     Fix:  Semantic tags + .container + BEM-style contact classes where needed
+
+--------------------------------------------------------------------------------
+B. ORIGINAL index.html (HOME) — SPECIFIC ISSUES
+--------------------------------------------------------------------------------
+
+B1.  Issue: No <main> around hero and content
+     Fix:  Wrapped in <main id="main">
+
+B2.  Issue: Hero was a plain <div class="hero">
+     Fix:  <section class="hero container">
+
+B3.  Issue: "What we do" was a single <div class="content"> with one paragraph
+     Fix:  Three <article class="card"> with <figure> + <img> + <figcaption>
+
+B4.  Issue: No feature / team imagery section with caption
+     Fix:  <section class="feature"> with <figure> and hero image
+
+B5.  Issue: No structured call-to-action from hero
+     Fix:  <a class="btn" href="contact.html">
+
+B6.  Issue: Images / paths — starter assumed .jpg files not provided
+     Fix:  SVG placeholders under images/ and updated src
+
+--------------------------------------------------------------------------------
+C. ORIGINAL about.html — SPECIFIC ISSUES
+--------------------------------------------------------------------------------
+
+C1.  Issue: Team area — only heading + paragraph; no images, figures, or roles
+     Fix:  <div class="team"> with three <figure> + images + <figcaption>
+
+C2.  Issue: Services — starter comment "Missing third service" (only two columns)
+     Fix:  Three <article class="card"> with <h3> + <p>
+
+C3.  Issue: Services not flex row of cards (starter expected flex, only divs)
+     Fix:  .service-cards uses Flexbox (display flex, flex-wrap, gap, etc.)
+
+C4.  Issue: Portfolio — three raw <img> with no <figure> / <figcaption>
+     Fix:  Six items in <div class="grid-gallery">, each <figure> + <img> + <figcaption>
+
+C5.  Issue: No CSS Grid gallery (starter comment: grid missing)
+     Fix:  .grid-gallery uses grid-template-columns repeat(auto-fit, minmax(250px,1fr)) + gap + rows
+
+C6.  Issue: Portfolio image count below assignment expectations
+     Fix:  Extended to six projects with captions
+
+C7.  Issue: Hard-coded .jpg paths without real assets
+     Fix:  .svg placeholders + consistent alt text
+
+--------------------------------------------------------------------------------
+D. ORIGINAL contact.html — SPECIFIC ISSUES
+--------------------------------------------------------------------------------
+
+D1.  Issue: <form> missing action and method
+     Fix:  action="#" method="post" (placeholder for static demo)
+
+D2.  Issue: No <label> elements — only placeholder on inputs
+     Fix:  Every control has <label> with matching for / id
+
+D3.  Issue: Email field used type="text"
+     Fix:  type="email"
+
+D4.  Issue: Phone field used type="text"
+     Fix:  type="tel" + pattern for digit validation
+
+D5.  Issue: No required, minlength, maxlength, or other validation
+     Fix:  required, minlength on name/message, maxlength on message, pattern on phone
+
+D6.  Issue: No fieldset / legend grouping
+     Fix:  Three fieldsets: Personal Information, Service Required, Your Message
+
+D7.  Issue: No radio buttons for service type
+     Fix:  Three type="radio" options (video / audio / editing)
+
+D8.  Issue: No <select> dropdown
+     Fix:  select "How did you hear about us?" — 7+ input types requirement
+
+D9.  Issue: No input type="date"
+     Fix:  Preferred contact date field
+
+D10. Issue: No checkboxes — starter listed checkboxes as missing
+     Fix:  Optional type="checkbox" (news/updates) with wrapped <label>
+
+D11. Issue: button not typed as submit explicitly
+     Fix:  type="submit"
+
+D12. Issue: Form was a single vertical stack — no layout for rubric
+     Fix:  .contact-form-columns CSS Grid: personal left; service above message right; stacks on small screens
+
+D13. Issue: Starter comment also mentioned number inputs
+     Fix:  Rubric "7+ types" met without number (text, email, tel, date, select,
+           radio, checkbox, textarea, submit); add type="number" only if brief requires
+
+--------------------------------------------------------------------------------
+E. ORIGINAL media.html — SPECIFIC ISSUES
+--------------------------------------------------------------------------------
+
+E1.  Issue: <video src="…"> without controls
+     Fix:  controls, poster, <source type="video/mp4">
+
+E2.  Issue: No fallback content inside <video>
+     Fix:  Plain-text fallback between <video> and </video>
+
+E3.  Issue: Second video missing entirely
+     Fix:  Two <figure> blocks, sample1.mp4 and sample2.mp4
+
+E4.  Issue: <audio> missing completely (only a paragraph)
+     Fix:  <audio controls> with <source type="audio/mpeg"> + fallback text
+
+E5.  Issue: iframe for map missing
+     Fix:  Google Maps iframe with title, allowfullscreen, loading="lazy",
+           class="map-embed" (no inline border)
+
+E6.  Issue: Testimonials: bare <img> — missing figure/figcaption
+     Fix:  Three <figure> + <figcaption> quotes
+
+E7.  Issue: Only two testimonial images; third missing
+     Fix:  Third client image + caption added
+
+E8.  Issue: Videos not wrapped in semantic media pattern
+     Fix:  Each video in <figure> + <figcaption>
+
+E9.  Issue: Audio not in a figure
+     Fix:  <figure class="audio-figure"> + <figcaption>
+
+E10. Issue: Fixed pixel video size only — weak responsive story
+     Fix:  width="100%" + CSS for video, audio
+
+--------------------------------------------------------------------------------
+F. ORIGINAL css/styles.css — SPECIFIC ISSUES
+--------------------------------------------------------------------------------
+
+F1.  Issue: Navigation not Flexbox (starter comment admitted gap)
+     Fix:  nav ul display flex, justify-content, align-items, flex-wrap
+
+F2.  Issue: No :hover (or other pseudo-classes) on .nav a
+     Fix:  :hover, :focus, :nth-child, :first-child, :last-child, :not(:focus), etc.
+
+F3.  Issue: No combination selectors (e.g. a.active, section > p)
+     Fix:  a.active, .service-cards > .card, h2 + p, footer.container address a:hover, etc.
+
+F4.  Issue: No attribute selectors (e.g. input[type="email"])
+     Fix:  input[type="text"], [href], etc.
+
+F5.  Issue: No child / descendant patterns beyond flat class rules
+     Fix:  section.container > p, fieldset > legend, nav ul li, #main
+
+F6.  Issue: .hero used lightgray background and #ddd text — poor contrast
+     Fix:  Light gradient + dark body text; WCAG-minded greys
+
+F7.  Issue: Starter comments: missing Flexbox layouts (2+)
+     Fix:  Nav, service cards, footer, team, video row, header — multiple flex contexts
+
+F8.  Issue: Starter comments: missing CSS Grid
+     Fix:  .grid-gallery, .testimonial-grid, .contact-form-columns
+
+F9.  Issue: No text effects (e.g. shadow)
+     Fix:  text-shadow on h1
+
+F10. Issue: No transforms
+     Fix:  Scale on cards, translateY on buttons/links, rotate on images
+
+F11. Issue: No transitions
+     Fix:  Transitions on cards, buttons, links, inputs
+
+F12. Issue: No @keyframes / animation
+     Fix:  fadeIn on .hero
+
+F13. Issue: No styling rules for video or audio
+     Fix:  Shared video, audio rules + layout sections
+
+F14. Issue: Form styling limited to form input and form button
+     Fix:  textarea, select, :focus, :not(:focus), fieldset spacing
+
+F15. Issue: Button only background-color: blue — no hover, no motion
+     Fix:  Accent palette, :hover, transform + shadow
+
+F16. Issue: No @media queries — not responsive
+     Fix:  @media (max-width: 768px) for nav, cards, footer, contact grid, videos
+
+F17. Issue: Starter self-audit: only ~3 selector types (element + class)
+     Fix:  Element, class, ID, descendant, child, attribute, pseudo-class, combinations
+
+F18. Issue: No comments / poor organisation
+     Fix:  Section banners in base.css, layout.css, components.css + @import from styles.css
+
+F19. Issue: Magic numbers scattered (20px, blue)
+     Fix:  CSS variables in :root (--space-*, --color-*, --content-max-width)
+
+--------------------------------------------------------------------------------
+G. SUMMARY COUNT
+--------------------------------------------------------------------------------
+
+Sections A–F list 60 distinct issue rows (some rubric overlap is intentional).
+
+Together they map every problem called out in your original HTML comments and
+CSS comments, plus semantic / validation / accessibility gaps implied by that
+code.
+
+--------------------------------------------------------------------------------
+H. REFERENCE — ORIGINAL SNIPPETS (ABBREVIATED)
+--------------------------------------------------------------------------------
+
+Original pattern (all pages):
+  <div class="top"> + <div class="nav"> + generic <div> content + <div class="bottom">
+
+Original CSS opening comment:
+  "Basic styles with multiple errors and missing features" — listed missing
+  flexbox, grid, pseudo-classes, advanced selectors, contrast problems,
+  effects, animations, media queries, and video/audio/form styling.
+
+The current repository replaces that structure with semantic HTML5, split CSS,
+flex + grid, effects, responsive rules, and documented media paths under
+images/ and media/.
+
+================================================================================
+END OF ISSUES LOG
+================================================================================
