@@ -1,0 +1,98 @@
+/* ============================================
+   LAYOUT
+   Page structure: containers, header, main, footer
+   ============================================ */
+
+/* Class — centred content width (same column as header/footer inner area) */
+.container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+/* ID selector — main landmark (accessibility + marking criteria) */
+#main {
+    min-height: 50vh;
+}
+
+/* Header: full-width bar; inner flex aligns with main column */
+header.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    padding-left: max(var(--space-md), calc((100% - var(--content-max-width)) / 2));
+    padding-right: max(var(--space-md), calc((100% - var(--content-max-width)) / 2));
+    background-color: var(--color-header-bg);
+    color: var(--color-header-text);
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header.container h1 {
+    margin: 0;
+    color: var(--color-header-text);
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+header.container nav {
+    flex-shrink: 0;
+}
+
+/* Footer — full-width bar; inner flex aligns with main column */
+footer.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    padding-left: max(var(--space-md), calc((100% - var(--content-max-width)) / 2));
+    padding-right: max(var(--space-md), calc((100% - var(--content-max-width)) / 2));
+    background-color: var(--color-footer-bg);
+    color: #f0f0f0;
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Combination: footer first paragraph emphasised */
+footer.container > p:first-child {
+    margin: 0;
+    font-weight: 600;
+}
+
+footer.container > p:last-child {
+    margin: 0;
+}
+
+/* Child combinator — direct paragraphs in main sections (not nested in cards) */
+section.container > p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+}
+
+/* Centre section headings and body text; contact form section uses default left align */
+section.container:not(.contact) {
+    text-align: center;
+}
+
+/* Centre standalone feature image block (index) under the heading */
+section.feature.container > figure {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    max-width: 100%;
+}
