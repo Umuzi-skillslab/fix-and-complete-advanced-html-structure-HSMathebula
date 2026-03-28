@@ -21,7 +21,7 @@
 
 - **Pages:** `index.html`, `about.html`, `media.html`, `contact.html`
 - **Styles:** `css/styles.css` imports `base.css`, `layout.css`, `components.css`
-- **Assets:** `images/` (SVG placeholders), `media/` (**`sample-audio.wav`** included; **`sample1.mp4`** / **`sample2.mp4`** included if present in your clone)
+- **Assets:** `images/` (SVG placeholders), `media/` (**`sample-audio.wav`** included; **`sample1.mp4`** / **`sample2.mp4`** included if present in my clone)
 - **Extra docs:** `design/issues-identified.txt`, `docs/wireframes.md`, `docs/screenshots/README.md`, `design/wireframe.pdf`
 
 **This README** is the single project write-up (overview, issues, fixes, flex/grid, selectors, motion, accessibility, browsers, local viewing, limitations).
@@ -147,7 +147,7 @@ At **`max-width: 768px`**, the contact form becomes **one column** (personal →
 │       └── README.md
 ├── images/            ← SVG placeholders (+ optional real images)
 ├── media/             ← sample-audio.wav, sample1.mp4, sample2.mp4 (as provided)
-└── screenshots/       ← optional captures for your report
+└── screenshots/       ← optional captures for my report
 ```
 
 ## 14. How to view the website locally
@@ -156,9 +156,9 @@ At **`max-width: 768px`**, the contact form becomes **one column** (personal →
 2. **Recommended:** run a **local server** (some browsers limit **`file://`** for iframe/media):
    - **VS Code:** **Live Server** → “Go Live” from the project root.
    - **Node:** `npx --yes serve .` then open the printed URL.
-3. Alternatively open **`index.html`** directly if your environment allows full media/map behaviour.
+3. Alternatively open **`index.html`** directly if my environment allows full media/map behaviour.
 
-## 15. Browser testing (complete for your submission)
+## 15. Browser testing (complete for my submission)
 
 Test **at least two** browsers (e.g. Chrome + Firefox):
 
@@ -168,12 +168,12 @@ Test **at least two** browsers (e.g. Chrome + Firefox):
 - [ ] Form validation blocks empty/invalid submit.
 - [ ] Layout is usable at ~**375px** width.
 
-Record results in your report; add screenshots under **`docs/screenshots/`** or **`screenshots/`** as required.
+Record results in my report; add screenshots under **`docs/screenshots/`** or **`screenshots/`** as required.
 
-## 16. Validation (complete for your submission)
+## 16. Validation (complete for my submission)
 
 - [ ] **HTML:** [W3C Markup Validator](https://validator.w3.org/) — aim for **zero errors**.
-- [ ] **CSS:** [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) — validate bundled CSS as your course requires.
+- [ ] **CSS:** [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) — validate bundled CSS as my course requires.
 
 ## 17. Related documentation files
 
