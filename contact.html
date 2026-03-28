@@ -49,6 +49,20 @@
 
                         <label for="date">Preferred Contact Date:</label>
                         <input type="date" id="date" name="date" required>
+
+                        <label for="referral">How did you hear about us?</label>
+                        <select id="referral" name="referral" required>
+                            <option value="">Please select…</option>
+                            <option value="search">Search engine</option>
+                            <option value="social">Social media</option>
+                            <option value="referral">Friend or colleague</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <label>
+                            <input type="checkbox" id="updates" name="updates" value="yes">
+                            Email me occasional news and offers (optional)
+                        </label>
                     </fieldset>
 
                     <!-- SERVICE TYPE -->
@@ -76,7 +90,7 @@
                         <legend>Your Message</legend>
 
                         <label for="message">Message:</label>
-                        <textarea id="message" name="message" required minlength="10"></textarea>
+                        <textarea id="message" name="message" required minlength="10" maxlength="2000" rows="6" placeholder="Describe your project (10–2000 characters)"></textarea>
                     </fieldset>
 
                 </div>
@@ -90,8 +104,10 @@
     </main>
 
     <footer class="container">
-        <p>Email: contact@mediaproduction.com</p>
-        <p>Phone: 555-0123</p>
+        <address>
+            <p>Email: <a href="mailto:contact@mediaproduction.com">contact@mediaproduction.com</a></p>
+            <p>Phone: <a href="tel:+15550123">555-0123</a></p>
+        </address>
     </footer>
 
 </body>
