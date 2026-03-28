@@ -1,50 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our media work including video, audio and client testimonials.">
+
     <title>Media Gallery</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-    <div class="top">
-        <h1>Media Gallery</h1>
-        <div class="nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="media.html">Media</a>
-            <a href="contact.html">Contact</a>
-        </div>
-    </div>
-    
-    <div>
-        <h2>Video Showcase</h2>
-        
-        <!-- First video - missing controls and fallback -->
-        <video src="media/sample1.mp4" width="640" height="360"></video>
-        
-        <!-- Second video missing entirely -->
-    </div>
-    
-    <div>
-        <h2>Audio Sample</h2>
-        <!-- Audio element missing completely -->
-        <p>Listen to our audio production quality.</p>
-    </div>
-    
-    <div>
-        <h2>Location</h2>
-        <!-- iframe missing completely -->
-        <p>Visit our studio at 123 Media Street</p>
-    </div>
-    
-    <div>
-        <h2>Client Testimonials</h2>
-        <img src="images/client1.jpg">
-        <img src="images/client2.jpg">
-        <!-- Missing figure/figcaption semantic markup -->
-    </div>
-    
-    <div class="bottom">
+
+    <header class="container">
+        <h1>Media Production Company</h1>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="media.html" class="active">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="videos container">
+            <h2>Video Showcase</h2>
+
+            <div class="video-container">
+
+                <figure>
+                    <video controls width="100%">
+                        <source src="media/sample1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>Corporate Video Production</figcaption>
+                </figure>
+
+                <figure>
+                    <video controls width="100%">
+                        <source src="media/sample2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <figcaption>Creative Media Project</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+        <section class="audio container">
+            <h2>Audio Sample</h2>
+            <p>Listen to our audio production quality.</p>
+
+            <audio controls>
+                <source src="media/sample-audio.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <section class="location container">
+            <h2>Our Location</h2>
+            <p>Visit our studio at 123 Media Street</p>
+
+            <iframe 
+                src="https://www.google.com/maps?q=Johannesburg&output=embed"
+                width="100%" 
+                height="400" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </section>
+
+        <section class="testimonials container">
+            <h2>Client Testimonials</h2>
+
+            <div class="testimonial-grid">
+
+                <figure>
+                    <img src="images/client1.jpg" alt="Happy client">
+                    <figcaption>“Amazing service and quality!”</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/client2.jpg" alt="Satisfied client">
+                    <figcaption>“Highly professional team.”</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/client3.jpg" alt="Client feedback">
+                    <figcaption>“Exceeded our expectations.”</figcaption>
+                </figure>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="container">
         <p>Email: contact@mediaproduction.com</p>
-    </div>
+        <p>Phone: 555-0123</p>
+    </footer>
+
 </body>
 </html>
