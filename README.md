@@ -206,5 +206,3 @@ Record results in your report; add screenshots under **`docs/screenshots/`** or 
 - Keep **`design/wireframe.pdf`** aligned with the live layout if you change structure.
 
 ---
-
-*This README replaces the former `docs/PROJECT_DOCUMENTATION.md` (content merged here).*
