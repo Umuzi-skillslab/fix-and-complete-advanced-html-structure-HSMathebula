@@ -7,8 +7,7 @@
 
 ## 2. Author and module
 
-- **Student:** [Your name]
-- **Course / module:** [Your course code]
+- **Student:** Sipho Mathebula
 - **Repository:** GitHub Classroom assignment (see buttons above)
 
 ## 3. What this project includes
@@ -102,11 +101,11 @@ Save screenshots for your submission (`docs/screenshots/`).
 
 ## 11. Submission checklist
 
-- [ ] All media files added where referenced.
-- [ ] HTML + CSS validated (0 errors goal).
-- [ ] Two browsers tested (notes + screenshots).
-- [ ] Wireframes, issues log, README, screenshots included per brief.
-- [ ] Git commit and push to Classroom before the deadline.
+- [x] All media files added where referenced.
+- [x] HTML + CSS validated (0 errors goal).
+- [x] Two browsers tested (notes + screenshots).
+- [x] Wireframes, issues log, README, screenshots included per brief.
+- [x] Git commit and push to Classroom before the deadline.
 
 ---
 
